@@ -3,7 +3,7 @@ import { handleSignupClick } from '../utils/url';
 import { ScrollSection } from './ScrollSection';
 
 const Hero: React.FC = () => {
-  const baseUrl = '/plataforma-de-vendas/';
+  const baseUrl = '/sales-platform/';
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -40,15 +40,15 @@ const Hero: React.FC = () => {
     }
   }, [hoveredItem]);
 
-  const features = ['Catálogo', 'CRM', 'Pedidos', 'Central do Vendedor', 'Compartilhamento', 'Copiloto de IA'];
+  const features = ['Product Catalog', 'CRM', 'Order Management', 'Seller Dashboard', 'Sharing Features', 'AI Copilot'];
 
   const tooltips: { [key: string]: string } = {
-    'Catálogo': 'Organize seus produtos com fotos, preços e descrições profissionais',
-    'CRM': 'Gerencie sua carteira de clientes de forma inteligente e otimizada',
-    'Pedidos': 'Controle suas vendas e administre o status dos pedidos',
-    'Central do Vendedor': 'Crie e gerencie catálogos exclusivos para cada vendedor',
-    'Compartilhamento': 'Promova facilmente no WhatsApp, redes sociais e catálogo digital',
-    'Copiloto de IA': 'Receba oportunidades para vender mais com a Redi IA'
+    'Product Catalog': 'Organize your products with professional photos, prices, and descriptions',
+    'CRM': 'Manage your customer base intelligently and efficiently',
+    'Order Management': 'Track your sales and manage order statuses with ease',
+    'Seller Dashboard': 'Create and manage exclusive catalogs for each individual seller',
+    'Sharing Features': 'Easily promote on WhatsApp, social media, and digital catalogs',
+    'AI Copilot': 'Get automated sales opportunities with Redi AI'
   };
 
   return (
@@ -57,10 +57,10 @@ const Hero: React.FC = () => {
         {/* Main Hero Content */}
         <ScrollSection className="text-center mb-4 md:mb-6 max-w-5xl mx-auto">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-2 md:mb-3">
-            A plataforma de vendas para o comércio que <span className="gradient-text">pensa grande.</span>
+            The sales platform for <span className="gradient-text">multi-channel</span> commerce
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-4 leading-relaxed max-w-3xl mx-auto font-medium">
-            Venda mais no WhatsApp e Redes sociais com uma plataforma que organiza produtos, pedidos e oportunidades em um só lugar - sem complicação.
+            Drive more sales across WhatsApp and social media with a platform that centralizes your product catalog, orders, and opportunities—without the complexity.
           </p>
         </ScrollSection>
 
@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
           <div className="pt-6 md:pt-8">
             <div className="flex flex-col items-center justify-center gap-6 text-center">
-              <span className="text-sm md:text-lg text-slate-500 font-semibold relative z-0">Mais que um catálogo:</span>
+              <span className="text-sm md:text-lg text-slate-500 font-semibold relative z-0">More than just a catalog:</span>
               {/* Mobile Carousel */}
               <div className="md:hidden relative w-full overflow-visible z-10">
                 <div className="overflow-visible">
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
             onClick={handleSignupClick}
             className="bg-[#b539e6] hover:bg-[#b539e6]/90 text-white px-8 py-3 rounded-full font-semibold text-sm md:text-base transition-all shadow-lg shadow-[#b539e6]/20 hover:scale-105"
           >
-            Comece grátis
+            Start free trial
           </button>
         </ScrollSection>
 
@@ -143,10 +143,10 @@ const Hero: React.FC = () => {
           </div>
           <div className="w-full md:w-2/3 text-center md:text-left">
             <h3 className="text-sm md:text-xl font-bold text-slate-900 mb-1.5 md:mb-2">
-              A Redi IA trabalha para você vender mais.
+              Redi works to maximize your sales.
             </h3>
             <p className="text-xs md:text-base text-slate-600 leading-relaxed font-medium">
-              Ela analisa produtos, clientes e comportamento de compra para decidir o que vender, para quem e quando, gerando novas oportunidades automaticamente.
+              It analyzes products, customers, and buying patterns to determine what to sell, to whom, and when—automatically generating new opportunities.
             </p>
           </div>
         </ScrollSection>

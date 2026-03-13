@@ -71,7 +71,7 @@ export const translations: Record<string, Translation> = {
     'alert.deadline': 'Only until January 31st',
     
     // Header
-    'header.button': 'Get Started Now',
+    'header.button': 'Start free trial',
     
     // Hero
     'hero.title': 'The sales platform for commerce that',
@@ -86,7 +86,7 @@ export const translations: Record<string, Translation> = {
     'stats.title': 'Real results for those who use Redi daily',
     'stats.subtitle': 'Metrics that show the real impact of our platform on your business',
     'stats.badge': 'Proven Results',
-    'stats.button': 'View Detailed Results',
+    'stats.button': 'Start free trial',
     'stats.revenue.label': 'increase in revenue per visit',
     'stats.revenue.description': 'More efficiency in every conversion',
     'stats.roi.label': 'return on ad spend',
@@ -99,7 +99,7 @@ export const translations: Record<string, Translation> = {
     // PainPoints
     'painpoints.title': 'Problems that Redi solves',
     'painpoints.subtitle': 'Transform challenges into opportunities with our smart platform',
-    'painpoints.button': 'Try for Free',
+    'painpoints.button': 'Start free trial',
     'painpoints.point1.title': 'Lost sales',
     'painpoints.point1.description': 'Stop losing opportunities due to lack of organization in customer service.',
     'painpoints.point2.title': 'Zero control',

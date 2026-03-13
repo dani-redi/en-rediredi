@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
-  const baseUrl = '/plataforma-de-vendas/';
+  const baseUrl = '/sales-platform/';
 
   return (
     <footer className="bg-[#b539e6] text-white py-5 md:py-6 px-4 md:px-6">
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <img src={`${baseUrl}redi-redi.svg`} alt="RediRedi" className="h-7 w-auto brightness-0 invert" />
         </div>
         <p className="text-sm md:text-base font-medium text-white/90 text-center">
-          © 2026 RediRedi. Todos os direitos reservados.
+          © 2026 RediRedi. All rights reserved.
         </p>
         <div className="flex items-center gap-4">
           <a href="#" aria-label="YouTube" className="text-white/90 hover:text-white transition-colors">

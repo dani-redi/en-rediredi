@@ -4,24 +4,24 @@ import { ScrollSection } from './ScrollSection';
 import { handleSignupClick } from '../utils/url';
 
 const PainPoints: React.FC = () => {
-  const baseUrl = '/plataforma-de-ventas/';
+  const baseUrl = '/sales-platform/';
 
   const points = [
     {
-      title: "Sem visibilidade nas vendas?",
-      description: "A Redi ativa lembretes automáticos de recompra com base no comportamento dos seus clientes e recupera vendas esquecidas."
+      title: "Lack of sales visibility?",
+      description: "Redi triggers automatic repurchase reminders based on customer behavior and recovers forgotten sales."
     },
     {
-      title: "Vendedor saiu e levou a carteira?",
-      description: "A Redi centraliza tudo: clientes, histórico e pedidos e protege sua base, independente do vendedor."
+      title: "Salesperson left with your clients?",
+      description: "Redi centralizes everything: customers, history, and orders, protecting your database regardless of staff changes."
     },
     {
-      title: "Pedidos desorganizados?",
-      description: "Organize tudo em um só lugar. A Redi conecta cliente, produto e pedido em segundos e ativa sua inteligência de vendas."
+      title: "Disorganized orders?",
+      description: "Organize everything in one place. Redi connects customers, products, and orders in seconds, activating your sales intelligence."
     },
     {
-      title: "Sem histórico de compras?",
-      description: "A Redi registra tudo automaticamente e transforma dados em novas oportunidades de venda."
+      title: "No purchase history?",
+      description: "Redi automatically records everything and transforms data into new sales opportunities."
     }
   ];
 
@@ -32,13 +32,13 @@ const PainPoints: React.FC = () => {
         <ScrollSection className="bg-slate-50 rounded-2xl md:rounded-[2.5rem] overflow-hidden grid md:grid-cols-2 mb-10 md:mb-12 border border-slate-100">
           <div className="p-8 md:p-16 flex flex-col justify-center">
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-              Cansou de perder vendas por alguns desses motivos?
+              Tired of losing sales for any of these reasons?
             </h2>
           </div>
           <div className="relative min-h-[300px]">
             <img
               src={`${baseUrl}lp-woman.png`}
-              alt="Mujer usando celular"
+              alt="Woman using smartphone"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
@@ -67,7 +67,7 @@ const PainPoints: React.FC = () => {
             onClick={handleSignupClick}
             className="bg-[#b539e6] hover:bg-[#b539e6]/90 text-white px-6 py-2.5 rounded-full font-semibold text-sm md:text-base transition-all shadow-lg shadow-[#b539e6]/20 hover:scale-105"
           >
-            Comece grátis
+            Start free trial
           </button>
         </ScrollSection>
       </div>

@@ -13,7 +13,7 @@ const App: React.FC = () => {
       {/* Top Alert Bar */}
       <div className="bg-gradient-to-r from-[#b539e6] to-[#6200ee] text-white py-2.5 px-4 text-center text-xs md:text-sm font-medium">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-          <span>A Redi te ajuda a crescer em 2026. 20% OFF no primeiro ano. Planos a partir de R$169/mês</span>
+          <span>Redi helps you grow in 2026. 20% OFF for the first year. Plans starting at $29/month</span>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 export const handleSignupClick = () => {
-    const url = new URL('https://app.rediredi.com/pt-BR/signup');
+    const url = new URL('https://app.rediredi.com/en/signup');
     const params = new URLSearchParams(window.location.search);
 
     let hasUtm = false;

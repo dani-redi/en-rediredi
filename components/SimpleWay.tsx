@@ -4,7 +4,7 @@ import { ScrollSection } from './ScrollSection';
 import { handleSignupClick } from '../utils/url';
 
 const SimpleWay: React.FC = () => {
-  const baseUrl = '/plataforma-de-vendas/';
+  const baseUrl = '/sales-platform/';
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -12,13 +12,13 @@ const SimpleWay: React.FC = () => {
   const features = useMemo(
     () => [
       { label: 'Dashboard', icon: 'space_dashboard', image: `${baseUrl}Dash.jpg` },
-      { label: 'Pedidos', icon: 'shopping_bag', image: `${baseUrl}Pedidos.jpg` },
-      { label: 'Produtos', icon: 'inventory_2', image: `${baseUrl}Produtos.jpg` },
-      { label: 'Clientes', icon: 'group', image: `${baseUrl}Clientes.jpg` },
-      { label: 'Vendedores', icon: 'support_agent', image: `${baseUrl}Vendedores.jpg` },
-      { label: 'Impulsionar', icon: 'rocket_launch', image: `${baseUrl}Impulsionar.jpg` },
-      { label: 'Catálogo', icon: 'view_module', image: `${baseUrl}Catalogo.jpg` },
-      { label: 'Redi IA', icon: 'auto_awesome', image: `${baseUrl}Redi.jpg` }
+      { label: 'Orders', icon: 'shopping_bag', image: `${baseUrl}Pedidos.jpg` },
+      { label: 'Products', icon: 'inventory_2', image: `${baseUrl}Produtos.jpg` },
+      { label: 'Customers', icon: 'group', image: `${baseUrl}Clientes.jpg` },
+      { label: 'Vendors', icon: 'support_agent', image: `${baseUrl}Vendedores.jpg` },
+      { label: 'Boost', icon: 'rocket_launch', image: `${baseUrl}Impulsionar.jpg` },
+      { label: 'Catalog', icon: 'view_module', image: `${baseUrl}Catalogo.jpg` },
+      { label: 'Redi AI', icon: 'auto_awesome', image: `${baseUrl}Redi.jpg` }
     ],
     [baseUrl]
   );
@@ -81,10 +81,10 @@ const SimpleWay: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <ScrollSection className="text-center mb-6">
           <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-3">
-            Explore tudo o que a Redi entrega
+            Explore everything Redi delivers
           </h2>
           <p className="text-slate-600 text-base md:text-lg">
-            Acesse cada área do produto com um clique e acompanhe o desempenho em tempo real.
+            Access every product area with one click and track performance in real time.
           </p>
         </ScrollSection>
 
@@ -187,7 +187,7 @@ const SimpleWay: React.FC = () => {
             onClick={handleSignupClick}
             className="bg-[#b539e6] hover:bg-[#b539e6]/90 text-white px-6 py-2.5 rounded-full font-semibold text-sm md:text-base transition-all shadow-lg shadow-[#b539e6]/20 hover:scale-105"
           >
-            Comece grátis
+            Start free trial
           </button>
         </ScrollSection>
       </div>

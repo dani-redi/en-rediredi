@@ -1,35 +1,35 @@
-# Guia de Implementação: Parâmetros UTM Padrão
+# Implementation Guide: Default UTM Parameters
 
-Este documento detalha a implementação da lógica de injeção automática de parâmetros UTM na Landing Page e fornece o passo a passo de como replicar esse comportamento em outras páginas, componentes ou novos botões no futuro.
+This document details the implementation of the automatic UTM parameter injection logic on the Landing Page and provides a step-by-step guide on how to replicate this behavior in other pages, components, or new buttons in the future.
 
-## 1. Contexto e O Problema
+## 1. Context and The Problem
 
-Originalmente, os diversos botões de "Comece grátis" na página redirecionavam o usuário utilizando a chamada direta estática abaixo:
+Originally, the various "Get started for free" buttons on the page redirected the user using the direct static call below:
 
 ```tsx
-window.open('https://app.rediredi.com/pt-BR/signup?' + window.location.search, '_blank')
+window.open('https://app.rediredi.com/en/signup?' + window.location.search, '_blank')
 ```
 
-**Problemas com a abordagem antiga:**
-1. A concatenação básica `?` + `location.search` gerava falhas de formatação como `??` se a base URL já possuísse parâmetros acoplados indevidamente.
-2. Quando um usuário organicamente acessava o site direto pela home page (sem parâmetros nas URLs), a aplicação Redi recebia um lead em branco em questões de tracking de anúncios, resultando em perda de origem de dado.
-3. Repetição de código na aplicação inteira (violando o conceito DRY - Don't Repeat Yourself).
+**Problems with the old approach:**
+1. Basic concatenation like `?` + `location.search` caused formatting errors like `??` if the base URL already had parameters attached incorrectly.
+2. When a user organically accessed the site directly through the home page (without parameters in the URLs), the Redi application received a "blank" lead in terms of ad tracking, resulting in lost origin data.
+3. Code repetition throughout the entire application (violating the DRY - Don't Repeat Yourself concept).
 
-## 2. A Solução Implementada
+## 2. The Implemented Solution
 
-Para resolver esses pontos, criamos e arquitetamos uma função utilitária global e testável chamada `handleSignupClick`. Essa função interage nativamente com as bibliotecas nativas web API `URL` e `URLSearchParams`, avaliando a URL atual de maneira robusta. 
+To resolve these points, we created and architected a global and testable utility function called `handleSignupClick`. This function interacts natively with the web API libraries `URL` and `URLSearchParams`, evaluating the current URL robustly.
 
-**O que essa função faz na prática?**
-1. Checa a URL do navegador.
-2. Procura ativamente por chaves (keys) iniciados com a tag `utm_` (ex: `utm_source`, `utm_campaign`, `utm_medium`, etc).
-3. Caso **NÃO POSSUA NENHUM** parâmetro referente a tracking UTM, a função injeta explicitamente o comportamento padrão: `utm_source=organic_lp`.
-4. Caso já exista alguma campanha UTM rodando, a aplicação irá preservar os valores e enviá-los ao App.
+**What does this function do in practice?**
+1. Checks the browser URL.
+2. Actively searches for keys starting with the `utm_` tag (e.g., `utm_source`, `utm_campaign`, `utm_medium`, etc.).
+3. If it **DOES NOT HAVE ANY** UTM tracking parameter, the function explicitly injects the default behavior: `utm_source=organic_lp`.
+4. If a UTM campaign is already running, the application will preserve the values and send them to the App.
 
-O processamento lógico mora de forma contida na raiz do sistema:
-**Arquivo utilitário: `utils/url.ts`**
+The logical processing resides cleanly at the system's root:
+**Utility file: `utils/url.ts`**
 ```typescript
 export const handleSignupClick = () => {
-  const url = new URL('https://app.rediredi.com/pt-BR/signup');
+  const url = new URL('https://app.rediredi.com/en/signup');
   const params = new URLSearchParams(window.location.search);
   
   let hasUtm = false;
@@ -50,36 +50,36 @@ export const handleSignupClick = () => {
 
 ---
 
-## 3. Passo a Passo: Replicando em outras estruturas
+## 3. Step-by-Step: Replicating in other structures
 
-Se você, desenvolvedor, possuir a missão de criar uma NOVA seção ou página contendo um CTA (Call to Action) para o "Sign Up" (Cadastro), basta acoplar a função citada, sem a necessidade de reescrever lógica pura de URLs.
+If you, the developer, have the mission of creating a NEW section or page containing a CTA (Call to Action) for "Sign Up" (Registration), simply attach the mentioned function without the need to rewrite pure URL logic.
 
-### Passo 1: Importe a função analítica `handleSignupClick`
-No topo do seu arquivo do componente (ex: `NovoComponente.tsx`):
+### Step 1: Import the analytical function `handleSignupClick`
+At the top of your component file (e.g., `NewComponent.tsx`):
 
 ```tsx
 import { handleSignupClick } from '../utils/url';
 ```
-*(Nota: Certifique-se apenas se o caminho das pastas (ex: `../` ou `../../`) está correto).*
+*(Note: Just ensure the folder path (e.g., `../` or `../../`) is correct).*
 
-### Passo 2: Acople-o no evento de Interação do Componente HTML
-No elemento de ação como seu `<button>` contendo a funcionalidade de "Comece grátis", apenas vincule à sua prop `onClick`.
+### Step 2: Attach it to the HTML Component's Interaction Event
+On action elements like your `<button>` containing the "Get started for free" functionality, simply bind it to your `onClick` prop.
 
-**Em vez de utilizar isso (Padrão Antigo):**
+**Instead of using this (Old Standard):**
 ```tsx
 <button 
-   onClick={() => window.open('https://app.rediredi.com/pt-BR/signup?' + window.location.search, '_blank')}
+   onClick={() => window.open('https://app.rediredi.com/en/signup?' + window.location.search, '_blank')}
 >
-  Comece grátis
+  Get started for free
 </button>
 ```
 
-**Faça isso (Padrão Novo e Recomendado):**
+**Do this (New and Recommended Standard):**
 ```tsx
 <button onClick={handleSignupClick}>
-  Comece grátis
+  Get started for free
 </button>
 ```
 
-### O que acontece no final?
-Todos os botões que acionarem com clique a função `handleSignupClick` irão herdar as boas práticas de atribuição orgânica "organic_lp", preservando a saúde analítica das suas plataformas do Google Analytics/Plataforma Ads.
+### What happens in the end?
+All buttons that trigger the `handleSignupClick` function on click will inherit the best practices of "organic_lp" organic attribution, preserving the analytical health of your Google Analytics/Ads platforms.
