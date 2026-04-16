@@ -14,5 +14,14 @@ export const handleSignupClick = () => {
     }
 
     url.search = params.toString();
+
+    const dataLayer = (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer;
+    if (Array.isArray(dataLayer)) {
+        dataLayer.push({
+            event: 'signup_click',
+            signup_url: url.toString(),
+        });
+    }
+
     window.open(url.toString(), '_blank');
 };
